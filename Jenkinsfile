@@ -15,6 +15,7 @@ pipeline{
                 git branch: 'main', url: 'https://github.com/balakrishna3/nodejs-project.git'
             }
         }
+     }   
    
     stages {
         stage('build') {
