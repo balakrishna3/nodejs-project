@@ -8,7 +8,14 @@ pipeline{
         }
     }
 //    tools {nodejs 'nodejs-16'}
-
+    
+     stages {
+        stage ("Clone the code"){
+            steps{
+                git branch: 'main', url: 'https://github.com/balakrishna3/nodejs-project.git'
+            }
+        }
+   
     stages {
         stage('build') {
             steps{
