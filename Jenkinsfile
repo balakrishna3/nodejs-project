@@ -7,7 +7,7 @@ pipeline{
             label "NodeJS"
         }
     }
-    tools {nodejs 'nodejs-16'}
+//    tools {nodejs 'nodejs-16'}
 
     stages {
         stage('build') {
