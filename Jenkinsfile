@@ -1,10 +1,10 @@
-def registry = 'https://valaxy02.jfrog.io'
-def imageName = 'valaxy02.jfrog.io/nodejs-docker/demo-nodejs'
+def registry = 'https://gignext.jfrog.io'
+def imageName = 'gignext.jfrog.io/gignext-docker/demo-gignext-nodejs'
 def version   = '1.0.2'
 pipeline{
     agent {
         node {
-            label "valaxy"
+            label "NodeJS"
         }
     }
     tools {nodejs 'nodejs-16'}
@@ -40,19 +40,19 @@ stage(" Docker Build ") {
         steps {
             script {
                echo '<--------------- Docker Publish Started --------------->'  
-                docker.withRegistry(registry, 'jfrog-access'){
+                docker.withRegistry(registry, 'jfrog'){
                     app.push()
                 }    
                echo '<--------------- Docker Publish Ended --------------->'  
             }
         }
     }
-            stage('Deployment') {
-            steps {
-                echo '<--------------- deployment started  --------------->'
-                sh './deploy.sh'
-                echo '<------------- deployment stopped  --------------->'
-            }
-        }  
+//            stage('Deployment') {
+//            steps {
+//                echo '<--------------- deployment started  --------------->'
+//                sh './deploy.sh'
+//                echo '<------------- deployment stopped  --------------->'
+//            }
+//        }  
     }
-    }
+ }
